@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+void lecturaVectores(int *vector1, string *vector2, int *vector3, char *vector4, char *vector5, int tam);//Declaracion de funciones
+void verVectores(int *vector1, string *vector2, int *vector3, char *vector4, char *vector5, int tam);
+
+void lecturaVectores(int *vector1, string *vector2, int* vector3, char* vector4, char* vector5, int tam) {
+	for (int ix = 0; ix < tam; ix++) {
+		cout << "Mascota [" << ix + 1 << "]: " << endl;
+		cout << "ID: ";
+		cin >> vector1[ix];
+		cout << endl << "Nombre: ";
+		cin >> vector2[ix];
+		cout << endl << "Edad: ";
+		cin >> vector3[ix];
+		cout << endl << "Raza: ";
+		cin >> vector4[ix];
+		cout << endl << "Dueño: ";
+		cin >> vector5[ix];
+	}
+	cout << endl << endl;
+}
+
+void verVectores(int *vector1, string *vector2, int *vector3, char *vector4, char *vector5, int tam) {
+	for (int ix = 0; ix < 6; ix++) {
+		for (int iy = 0; iy < tam; iy++) {
+			if (ix == 0 && iy != 0) {
+				cout << "| Mascota " << iy + 1 << " |";
+			} 
+			else {
+				switch (ix) {
+				case 1:
+					cout << "ID: | " << vector1[iy];
+					break;
+				case 2:
+					cout << "Nombre: | " << vector2[iy];
+					break;
+				case 3:
+					cout << "Edad: | " << vector3[iy];
+					break;
+				case 4:
+					cout << "Raza: | " << vector4[iy];
+					break;
+				case 5:
+					cout << "Dueño: | " << vector5[iy];
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		cout << " |";
+		cout << endl;
+	}
+}
+
+int main() { //Programa principal
+ 
+	int tam;
+	cout << "Ingrese la cantidad de Mascotas a registrar: "; //Lectura cantidad de datos
+	cin >> tam;
+	int *vectorId = new int[tam]; //Declaraciones de vectores
+	string *vectorNombre = new string[tam];
+	int *vectorEdad = new int[tam];
+	char *vectorRaza = new char[tam];
+	char *vectorDueno = new char[tam];
+
+	lecturaVectores(vectorId, vectorNombre, vectorEdad, vectorRaza, vectorDueno, tam);
+	verVectores(vectorId, vectorNombre, vectorEdad, vectorRaza, vectorDueno, tam);
+
+	return 0;
+}
