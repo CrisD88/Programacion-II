@@ -24,7 +24,7 @@ void lecturaVectores(int *vector1, string *vector2, int* vector3, char* vector4,
 void verVectores(int *vector1, string *vector2, int *vector3, char *vector4, char *vector5, int tam) {
 	for (int ix = 0; ix < 6; ix++) {
 		for (int iy = 0; iy < tam; iy++) {
-			if (ix == 0 && iy != 0) {
+			if (ix == 0 /*&& iy != 0*/) {
 				cout << "| Mascota " << iy + 1 << " |";
 			} 
 			else {
@@ -49,7 +49,7 @@ void verVectores(int *vector1, string *vector2, int *vector3, char *vector4, cha
 				}
 			}
 		}
-		cout << " |";
+		//cout << " |";
 		cout << endl;
 	}
 }
